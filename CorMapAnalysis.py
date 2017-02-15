@@ -682,10 +682,10 @@ class ScatterAnalysis(object):
         # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ #
         if save and filename:
             if directory:
-                plot_path = "{}/{}".format(directory, filename)
+                plot_path = os.path.join(directory, filename)
             else:
                 plot_path = filename
-            plt.savefig(plot_path)
+            plt.savefig(plot_path, dpi=600)
         elif save and not filename:
             print "********************** ERROR ***************************"
             print "COULD NOT SAVE PLOT"
@@ -770,10 +770,10 @@ class ScatterAnalysis(object):
         # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ #
         if save and filename:
             if directory:
-                plot_path = "{}/{}".format(directory, filename)
+                plot_path = os.path.join(directory, filename)
             else:
                 plot_path = filename
-            plt.savefig(plot_path)
+            plt.savefig(plot_path, dpi=600)
         elif save and not filename:
             print "********************** ERROR ***************************"
             print "COULD NOT SAVE PLOT"
@@ -871,10 +871,10 @@ class ScatterAnalysis(object):
         # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ #
         if save and filename:
             if directory:
-                plot_path = "{}/{}".format(directory, filename)
+                plot_path = os.path.join(directory, filename)
             else:
                 plot_path = filename
-            plt.savefig(plot_path)
+            plt.savefig(plot_path, dpi=600)
         elif save and not filename:
             print "********************** ERROR ***************************"
             print "COULD NOT SAVE PLOT"
@@ -1057,10 +1057,10 @@ class ScatterAnalysis(object):
         # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ #
         if save and filename:
             if directory:
-                plot_path = "{}/{}".format(directory, filename)
+                plot_path = os.path.join(directory, filename)
             else:
                 plot_path = filename
-            plt.savefig(plot_path)
+            plt.savefig(plot_path, dpi=600)
         elif save and not filename:
             print "********************** ERROR ***************************"
             print "COULD NOT SAVE PLOT"
@@ -1243,11 +1243,11 @@ class ScatterAnalysis(object):
         # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ #
         if save and filename:
             if directory:
-                plot_path = "{}/{}".format(directory, filename)
+                plot_path = os.path.join(directory, filename)
             else:
                 plot_path = filename
             plt.savefig(plot_path, bbox_extra_artists=(lgd,),
-                        bbox_inches='tight')
+                        bbox_inches='tight', dpi=600)
         elif save and not filename:
             print "********************** ERROR ***************************"
             print "COULD NOT SAVE PLOT"
@@ -1372,10 +1372,10 @@ class ScatterAnalysis(object):
         # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ #
         if save and filename:
             if directory:
-                plot_path = "{}/{}".format(directory, filename)
+                plot_path = os.path.join(directory, filename)
             else:
                 plot_path = filename
-            plt.savefig(plot_path)
+            plt.savefig(plot_path, dpi=600)
         elif save and not filename:
             print "********************** ERROR ***************************"
             print "COULD NOT SAVE PLOT"
@@ -1472,10 +1472,10 @@ class ScatterAnalysis(object):
         # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ #
         if save and filename:
             if directory:
-                plot_path = "{}/{}".format(directory, filename)
+                plot_path = os.path.join(directory, filename)
             else:
                 plot_path = filename
-            plt.savefig(plot_path)
+            plt.savefig(plot_path, dpi=600)
         elif save and not filename:
             print "********************** ERROR ***************************"
             print "COULD NOT SAVE PLOT"

@@ -27,8 +27,6 @@ from CorMapAnalysis import ScatterAnalysis
 scat_obj = ScatterAnalysis.from_1d_curves("path/to/mydata_00*")
 scat_obj.plot_heatmap()
 ```
-Which generates the following   
-![heatmap](figures/heatmap.png)   
 
 To get information on each method, use the inbuilt `help` method in Python. For example to get the documentation for the heatmap method type
 ```python

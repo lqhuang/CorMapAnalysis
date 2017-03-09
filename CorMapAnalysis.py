@@ -87,7 +87,7 @@ class ScatterAnalysis(object):
         """
         Create a ScatterAnalysis object from .
 
-        Method to create ScatterAnalysis object from a set of 1D scattering
+        Method to create ScatterAnalysis object from a set of 1D scattering 
         curve files.
 
         Parameters
@@ -682,6 +682,8 @@ class ScatterAnalysis(object):
         # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ #
         if save and filename:
             if directory:
+                if not os.path.exists(directory):
+                    os.mkdir(directory)
                 plot_path = os.path.join(directory, filename)
             else:
                 plot_path = filename
@@ -770,6 +772,8 @@ class ScatterAnalysis(object):
         # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ #
         if save and filename:
             if directory:
+                if not os.path.exists(directory):
+                    os.mkdir(directory)
                 plot_path = os.path.join(directory, filename)
             else:
                 plot_path = filename
@@ -871,6 +875,8 @@ class ScatterAnalysis(object):
         # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ #
         if save and filename:
             if directory:
+                if not os.path.exists(directory):
+                    os.mkdir(directory)
                 plot_path = os.path.join(directory, filename)
             else:
                 plot_path = filename
@@ -1057,6 +1063,8 @@ class ScatterAnalysis(object):
         # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ #
         if save and filename:
             if directory:
+                if not os.path.exists(directory):
+                    os.mkdir(directory)
                 plot_path = os.path.join(directory, filename)
             else:
                 plot_path = filename
@@ -1243,6 +1251,8 @@ class ScatterAnalysis(object):
         # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ #
         if save and filename:
             if directory:
+                if not os.path.exists(directory):
+                    os.mkdir(directory)
                 plot_path = os.path.join(directory, filename)
             else:
                 plot_path = filename
@@ -1372,6 +1382,8 @@ class ScatterAnalysis(object):
         # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ #
         if save and filename:
             if directory:
+                if not os.path.exists(directory):
+                    os.mkdir(directory)
                 plot_path = os.path.join(directory, filename)
             else:
                 plot_path = filename
@@ -1472,6 +1484,8 @@ class ScatterAnalysis(object):
         # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ #
         if save and filename:
             if directory:
+                if not os.path.exists(directory):
+                    os.mkdir(directory)
                 plot_path = os.path.join(directory, filename)
             else:
                 plot_path = filename

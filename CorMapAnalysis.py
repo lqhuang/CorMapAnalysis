@@ -510,7 +510,7 @@ class ScatterAnalysis(object):
             print("KEY '{}' DOES NOT EXIST".format(datcmp_key))
             print("Use different frame numbers between 1 and {}".format(self.I.shape[1]))
 
-    def calc_cormap(self):
+    def calc_cormap(self, first=1, last=-1):
         """
         Calculate correlation map.
 
@@ -518,7 +518,10 @@ class ScatterAnalysis(object):
 
         Parameters
         ----------
-        N/A
+        first : int
+            Number of the begin frame used for correlation map analyis
+        last : int
+            Number of the last frame used for correlation map analyis
 
         Returns
         -------
@@ -529,7 +532,12 @@ class ScatterAnalysis(object):
         --------
         >>>  correlation_matrix = scat_obj.calc_cormap()
         """
-        return np.corrcoef(self.I)
+        if last == -1:
+            return np.corrcoef(self.I[:, first-1:])
+        elif last != -1:
+            return np.corrcoef(self.I[:, first-1:last])
+        else:
+            raise ValueError("Invalid value for last frame.")
 
     def calc_pwcormap(self, frame1, frame2):
         """
@@ -623,7 +631,7 @@ class ScatterAnalysis(object):
 #                        PLOT THE CORRELATION MAP                         #
 # ----------------------------------------------------------------------- #
     def plot_cormap(self, colour_scheme="gray", display=True, save=False,
-                    filename="", directory=""):
+                    filename="", directory="", first=1, last=-1):
         """
         Plot the full correlation map.
 
@@ -644,6 +652,10 @@ class ScatterAnalysis(object):
             the file extension.
         directory : str, optional  (default="")
             Select the directory in which you want the plot to be saved.
+        first : int
+            Number of the begin frame used for correlation map analyis
+        last : int
+            Number of the last frame used for correlation map analyis
 
         Examples
         --------
@@ -669,7 +681,8 @@ class ScatterAnalysis(object):
         plt.figure(self.PLOT_NUM)
         plt.gca().xaxis.grid(False)
         plt.gca().yaxis.grid(False)
-        cormap = plt.imshow(self.calc_cormap(), cmap=colour_scheme,
+        cormap = plt.imshow(self.calc_cormap(first=first, last=last),
+                            cmap=colour_scheme,
                             extent=[min_q, max_q, min_q, max_q])
         plt.xlabel(r'Scattering Vector, q (nm$^{-1}$)',
                    fontdict=self.PLOT_LABEL)

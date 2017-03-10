@@ -688,6 +688,11 @@ class ScatterAnalysis(object):
                    fontdict=self.PLOT_LABEL)
         plt.ylabel(r'Scattering Vector, q (nm$^{-1}$)',
                    fontdict=self.PLOT_LABEL)
+        if last == -1:
+            num_frames = self.I.shape[1]
+            plt.title("Frames from {} to {}".format(first, num_frames))
+        elif last != -1:
+            plt.title("Frames from {} to {}".format(first, last))
         plt.colorbar(cormap)
 
         # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ #

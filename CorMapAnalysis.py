@@ -202,6 +202,7 @@ class ScatterAnalysis(object):
             # Remove temporary directory if it still exists
             if os.path.exists(temp_dir_name):
                 shutil.rmtree(temp_dir_name)
+        # check number of data points
         if num_data_points_per_curve == 0:
             raise ValueError("Data points of per curve is equal to ZERO. Dat file do not load correctly.")
 

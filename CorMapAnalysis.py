@@ -10,7 +10,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib as mpl
 import pandas as pd
-import seaborn as sns
+import seaborn.apionly as sns
 
 
 class ScatterAnalysis(object):

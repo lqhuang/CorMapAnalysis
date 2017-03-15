@@ -708,7 +708,7 @@ class ScatterAnalysis(object):
                 plot_path = os.path.join(directory, filename)
             else:
                 plot_path = filename
-            plt.savefig(plot_path, dpi=600)
+            plt.savefig(plot_path, dpi=300)
         elif save and not filename:
             print("********************** ERROR ***************************")
             print("COULD NOT SAVE PLOT")
@@ -798,7 +798,7 @@ class ScatterAnalysis(object):
                 plot_path = os.path.join(directory, filename)
             else:
                 plot_path = filename
-            plt.savefig(plot_path, dpi=600)
+            plt.savefig(plot_path, dpi=300)
         elif save and not filename:
             print("********************** ERROR ***************************")
             print("COULD NOT SAVE PLOT")

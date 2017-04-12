@@ -687,9 +687,9 @@ class ScatterAnalysis(object):
         cormap = plt.imshow(self.calc_cormap(first=first, last=last),
                             cmap=colour_scheme,
                             extent=[min_q, max_q, min_q, max_q])
-        plt.xlabel(r'Scattering Vector, q (nm$^{-1}$)',
+        plt.xlabel(r'Scattering Vector, q ($\AA^{-1}$)',
                    fontdict=self.PLOT_LABEL)
-        plt.ylabel(r'Scattering Vector, q (nm$^{-1}$)',
+        plt.ylabel(r'Scattering Vector, q ($\AA^{-1}$)',
                    fontdict=self.PLOT_LABEL)
         if last == -1:
             num_frames = self.I.shape[1]
@@ -774,9 +774,9 @@ class ScatterAnalysis(object):
         cormap = plt.imshow(self.calc_pwcormap(frame1=fr1, frame2=fr2),
                             cmap=colour_scheme,
                             extent=[min_q, max_q, min_q, max_q])
-        plt.xlabel(r'Scattering Vector, q (nm$^{-1}$)',
+        plt.xlabel(r'Scattering Vector, q ($\AA^{-1}$)',
                    fontdict=self.PLOT_LABEL)
-        plt.ylabel(r'Scattering Vector, q (nm$^{-1}$)',
+        plt.ylabel(r'Scattering Vector, q ($\AA^{-1}$)',
                    fontdict=self.PLOT_LABEL)
         plt.colorbar(cormap, ticks=[1, -1])
         adjP = self.get_pw_data(fr1, fr2, "adj P(>C)")
@@ -798,7 +798,7 @@ class ScatterAnalysis(object):
                 plot_path = os.path.join(directory, filename)
             else:
                 plot_path = filename
-            plt.savefig(plot_path, dpi=300)
+            plt.savefig(plot_path, dpi=300, bbox_inches='tight')
         elif save and not filename:
             print("********************** ERROR ***************************")
             print("COULD NOT SAVE PLOT")
@@ -1389,7 +1389,7 @@ class ScatterAnalysis(object):
             else:
                 plt.plot(reciprocal_resolution, intensity, 'o',
                          label="Frame {}".format(frames))
-        plt.xlabel(r'Scattering Vector, q ($nm^{-1}$)',
+        plt.xlabel(r'Scattering Vector, q ($\AA^{-1}$)',
                    fontdict=self.PLOT_LABEL)
         if log_intensity:
             plt.ylabel('log(I) (arb. units.)', fontdict=self.PLOT_LABEL)

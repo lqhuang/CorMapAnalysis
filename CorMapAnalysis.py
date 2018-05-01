@@ -159,6 +159,7 @@ class ScatterAnalysis(object):
         """
         # Go through files and extract the frame data.
         file_list = glob.glob(scat_curve_location)
+        file_list.sort()
         num_frames = len(file_list)
 
         # Decide whether the frames need to be cropped first.
@@ -1240,7 +1241,7 @@ class ScatterAnalysis(object):
             lgd = ax.legend(handles=[good_patch, ok_patch, bad_patch], bbox_to_anchor=(1, 1), loc=legend_loc)
 
         else:
-            sns.heatmap(full_DataFrame, cmap="YlGnBu", cbar=True)
+            sns.heatmap(full_DataFrame, cmap="jet", cbar=True)
             plot_title = "C values for varying frame number"
 
         if xaxis_frame_num:
@@ -1277,8 +1278,11 @@ class ScatterAnalysis(object):
                 plot_path = os.path.join(directory, filename)
             else:
                 plot_path = filename
-            plt.savefig(plot_path, bbox_extra_artists=(lgd,),
-                        bbox_inches='tight', dpi=600)
+            if P_values:
+                plt.savefig(plot_path, bbox_extra_artists=(lgd,),
+                            bbox_inches='tight', dpi=600)
+            else:
+                plt.savefig(plot_path, bbox_inches='tight', dpi=600)
         elif save and not filename:
             print("********************** ERROR ***************************")
             print("COULD NOT SAVE PLOT")
@@ -1551,7 +1555,7 @@ def parse_saxs_dat_file(filename, data_type, array_size=-1):
         print("Please enter 'scattering angle', 'intensity' or 'sigma' as the data_type.")
         data_column = 1
     data_array = -1 * np.ones([array_size])
-    prog = re.compile("(?:\d+\.)?\d+[e][-\+]\d+")
+    prog = re.compile(r"(?:\d+\.)?\d+[eE][-\+]\d+")
     file_obj = open(filename)
     counter = 0
     for line in file_obj:

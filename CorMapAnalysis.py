@@ -1190,7 +1190,9 @@ class ScatterAnalysis(object):
                 pwframe_data = np.column_stack([abs(x_axis - sub), pwframe_data])
             else:
                 pwframe_data = np.column_stack([x_axis, pwframe_data])
-            pwframe_data = np.delete(pwframe_data, (frame-1), axis=0)
+            # pwframe_data = np.delete(pwframe_data, (frame-1), axis=0)
+            pwframe_data[frame - 1][2] = 1.0 
+            pwframe_data[frame - 1][3] = 1.0
             if use_adjP:
                 P_col = 3
             else:
@@ -1265,7 +1267,8 @@ class ScatterAnalysis(object):
         plt.ylabel('Frame Number', fontdict=self.PLOT_LABEL)
         plt.title(plot_title)
         tick_labels = np.linspace(1, num_frames, 10).astype(int)
-        plt.yticks(tick_labels[::-1], tick_labels)
+        # plt.yticks(tick_labels[::-1], tick_labels)
+        plt.yticks(tick_labels, tick_labels)
         plt.xticks(tick_labels, tick_labels, rotation='horizontal')
 
         # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ #
